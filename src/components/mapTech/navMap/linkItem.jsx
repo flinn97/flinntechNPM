@@ -38,17 +38,20 @@ export default class LinkItem extends BaseClass {
     return this.activeClass;
   }
 
-  /**
-   * Sets the active class for the item if its name matches the object's active state.
-   * This ensures that the link item appears visually active when appropriate.
-   */
-  setActiveClass() {
-    if (this.obj?.active === this.obj?.name) { // Checks if the object is active
-      let activeClass = this.getActiveClass(); // Retrieves the active class
-      activeClass = activeClass || ""; // Defaults to an empty string if no class is found
-      this.item.setClass(this.item.getClass() + " " + activeClass); // Adds the active class to the item
-    }
+ /**
+ * Sets the active class for the item if its name matches the object's active state
+ * or if the current URL matches the object's path. This ensures the link item appears
+ * visually active when appropriate.
+ */
+setActiveClass() {
+  const currentUrl = window.location.pathname; // Get the current URL path
+
+  if (this.obj?.active === this.obj?.name || currentUrl.includes(this.obj?.path)) { // Checks if the object is active or the URL matches
+    let activeClass = this.getActiveClass(); // Retrieves the active class
+    activeClass = activeClass || ""; // Defaults to an empty string if no class is found
+    this.item.setClass(this.item.getClass() + " " + activeClass); // Adds the active class to the item
   }
+}
 
   /**
    * Performs additional setup tasks for the LinkItem.
