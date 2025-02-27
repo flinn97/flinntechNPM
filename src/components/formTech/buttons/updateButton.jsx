@@ -11,6 +11,9 @@ export default class UpdateButton extends BaseButton{
         for(let obj of this.obj){
             obj.update(this.props.updateParams);
         }
+        if(this.props.isPopup){
+            this.dispatch({popupSwitch:"", currentPopupComponent:undefined})
+         }
     }
 
    

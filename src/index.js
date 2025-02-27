@@ -57,3 +57,5 @@ export {appInterface, AppInterface} from "./components/templateTech/appInterface
 //for instance when I build a side bar nave the classes used should automatically account for it
 //fix things so that they don't need props.props like passing props down in a map component from the nav
 //add comments to Map base class
+//The popup machine needs to pass down props to the content of the card from the component obj
+// Need to fix the nav links to be able to be customizable with props.

@@ -1,6 +1,6 @@
 {
     "name": "flinntech",
-    "version": "1.0.0",
+    "version": "1.0.4",
     "description": "A description of your React package",
     "main": "src/index.js",
     "scripts": {

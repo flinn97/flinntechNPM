@@ -18,7 +18,7 @@ export default class BaseClassFactory {
 
     registerListWithFactory() {
         for (const key in this.registry) {
-            if (this.registry.hasOwnProperty(key)) {
+            if (Object.prototype.hasOwnProperty.call(this.registry, key)) {
                 const lowerCaseKey = key.charAt(0).toLowerCase() + key.slice(1);
                 this.factory[lowerCaseKey] = this.registry[key];
             }

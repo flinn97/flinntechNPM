@@ -44,7 +44,17 @@ export default class LinkItem extends BaseClass {
  * visually active when appropriate.
  */
 setActiveClass() {
+  const isHome = this.obj?.path === "/" || this.obj?.path === "/home"; // Define what qualifies as "home"
+
   const currentUrl = window.location.pathname; // Get the current URL path
+  // Check if the home tab should be active
+  if (isHome) {
+    // Home should only be active if there's no additional path segment (or it's explicitly "/home")
+    const pathSegments = currentUrl.split("/").filter(Boolean); // Remove empty segments
+    if (pathSegments.length > 0 && pathSegments[0] !== "home") {
+      return; // Do not apply the active class if another section is active
+    }
+  }
 
   if (this.obj?.active === this.obj?.name || currentUrl.includes(this.obj?.path)) { // Checks if the object is active or the URL matches
     let activeClass = this.getActiveClass(); // Retrieves the active class
