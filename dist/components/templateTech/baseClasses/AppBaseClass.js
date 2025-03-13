@@ -308,7 +308,7 @@ var AppBaseClass = /*#__PURE__*/function (_BaseComponent) {
         style: this.state.pageStyle
       }, /*#__PURE__*/React.createElement(_reactRouterDom.BrowserRouter, null, _popupCreationInterface.popupCreater.createPopupMachine({
         app: this.app
-      }), /*#__PURE__*/React.createElement(_navInterface.Navbar, this.state.navBarProps), Content ? /*#__PURE__*/React.createElement(Content.content, {
+      }), this.state.currentUser && /*#__PURE__*/React.createElement(_navInterface.Navbar, this.state.navBarProps), Content ? /*#__PURE__*/React.createElement(Content.content, {
         props: _objectSpread({}, Content.props)
       }) : /*#__PURE__*/React.createElement(React.Fragment, null), /*#__PURE__*/React.createElement(_router["default"], {
         routes: routes

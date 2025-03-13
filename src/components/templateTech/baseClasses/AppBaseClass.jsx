@@ -199,7 +199,7 @@
       <div className={this.state.pageClass} style={this.state.pageStyle}>
         <BrowserRouter>
           {popupCreater.createPopupMachine({ app: this.app })}
-          <Navbar {...this.state.navBarProps} />
+          {this.state.currentUser&&<Navbar {...this.state.navBarProps} />}
           {Content ? <Content.content props={{ ...Content.props }} /> : <></>}
           <Router routes={routes} />
         </BrowserRouter>
